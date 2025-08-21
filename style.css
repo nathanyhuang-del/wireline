@@ -1,21 +1,41 @@
+
+
 body {
+    padding-top: 100px;
     margin: 0;
     font-family: "Roboto", Arial, sans-serif;
-    background-color: #ffffff;
+    background: linear-gradient(
+        to bottom,
+        rgb(53, 52, 54) 0px,
+        rgb(53, 52, 54) 100px,
+        #fff 100px,
+        #fff 100%
+    );
 }
 
+
 .navbar {
-    background-color: rgb(53, 52, 54); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000; /* Ensure it stays above other content */
+    background-color: rgba(53, 52, 54); /* 85% opacity */
     display: flex;
     align-items: center;
     justify-content: space-between; /* Space between logo and options */
     padding: 0px;
     width: 100vw; /* Fix typo: use 100vw, not 100vvw */
+    transition: background-color 0.3s;
+}
+
+.navbar.transparent {
+    background-color: rgba(53, 52, 54, 0.95); /* Transparent when scrolled */
 }
 
 .navbar img {
-    width: 17%;
-    height: auto;
+    width: auto;
+    height: 90px;
     padding-left: 15%; /* Remove extra left padding */
     padding-top: 5px;
     padding-bottom: 5px;
@@ -122,7 +142,7 @@ body {
 
 .what-we-do {
     padding: 50px 15%;
-    background-color: rgb(230, 227, 60);
+    background-color: #f5f7fa;
 }
 
 .what-we-do h2 {
@@ -165,7 +185,9 @@ body {
 }
 
 .home-products {
-    padding: 50px 15%;
+    padding: 30px 15%;
+    padding-bottom: 70px;
+    background-color: #eaf0fb;
 }
 
 .home-product-text {
@@ -281,6 +303,8 @@ body {
 }
 
 .services {
+    padding: 10px;
+    background-color: white;
     text-align: center;
     margin: 3em 0;
 }

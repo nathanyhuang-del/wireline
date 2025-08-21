@@ -135,3 +135,13 @@ window.addEventListener('scroll', () => {
         if (cards[1]) cards[1].classList.add('fade-in-right');
     }
 });
+
+
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('transparent');
+    } else {
+        navbar.classList.remove('transparent');
+    }
+});
