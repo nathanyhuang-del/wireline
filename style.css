@@ -1,0 +1,460 @@
+body {
+    margin: 0;
+    font-family: "Roboto", Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.navbar {
+    background-color: rgb(53, 52, 54); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and options */
+    padding: 0px;
+    width: 100vw; /* Fix typo: use 100vw, not 100vvw */
+}
+
+.navbar img {
+    width: 17%;
+    height: auto;
+    padding-left: 15%; /* Remove extra left padding */
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-options {
+    display: flex;
+    align-items: center;
+    padding-right: 15%;
+}
+
+.navbar-options a {
+    color: #ffffff;
+    padding: 0 1em;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.navbar-options a:not(:first-child) {
+    border-left: 1px solid #bbb; /* Light gray vertical line */
+    padding-left: 1em;           /* Add space after the line */
+}
+
+.slideshow {
+    width: 100vw;
+    height: 500px; /* or try height: 300px; */
+    position: relative;
+    overflow: hidden;
+}
+.slide {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.7s;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Overlay styles */
+.slideshow-overlay {
+    padding-top: 90px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 500px; /* match slideshow height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Center vertically */
+    align-items: center;       /* Center horizontally */
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s;
+    pointer-events: none;
+    color: #fff;
+}
+
+.slideshow-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slideshow::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 500px; /* match slideshow height */
+    background: rgba(0,0,0,0.5); /* dark overlay */
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.slideshow.light::before {
+    opacity: 0;
+}
+
+.home-product-button {
+    background: #fff;                /* White fill */
+    color: #222;                     /* Dark text */
+    border: 2px solid #fff;          /* White border */
+    padding: 0.5em 1.6em;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 0px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.home-product-button:hover {
+    background: transparent;         /* Transparent fill on hover */
+    color: #fff;                     /* White text on hover */
+}
+
+
+.what-we-do {
+    padding: 50px 15%;
+    background-color: rgb(230, 227, 60);
+}
+
+.what-we-do h2 {
+    font-size: 1.8em;
+    text-decoration: underline;
+}
+
+.what-we-do p {
+    font-size: 1.2em;
+    width: 60%;         /* Set the width of the bounding box */
+    min-height: 100px;  /* Minimum height for the box */
+    padding: 0px;      /* Space inside the box */
+    margin: 0;     /* Center the box horizontally */
+    box-sizing: border-box;
+
+}
+
+.what-we-do-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0; /* vertical gap between text and images */
+}
+
+
+.what-we-do-images {
+    padding-left: 20%;
+    margin-top: -70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 0;
+
+}
+
+.what-we-do-images img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;      /* Crop only if needed to fill the box */
+    background: #eee;       /* Optional: fallback background */
+}
+
+.home-products {
+    padding: 50px 15%;
+}
+
+.home-product-text {
+    text-align: center;
+}
+
+.home-product-text h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.product-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+    position: relative;
+}
+
+.carousel-arrow {
+    background: #fff;
+    border: 2px solid #222;
+    color: #222;
+    font-size: 2em;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    z-index: 2;
+    display: flex;              /* Flexbox for centering */
+    align-items: center;        /* Vertically center */
+    justify-content: center;    /* Horizontally center */
+    padding: 0;                 /* Remove default padding */
+}
+
+.carousel-arrow svg {
+    height: 24px;               /* Set SVG height */
+    width: 24px;                /* Set SVG width */
+    display: block;             /* Remove inline spacing */
+}
+
+.carousel-arrow:hover {
+    background: #222;
+    color: #fff;
+}
+
+.carousel-track {
+    display: flex;
+    overflow: hidden;
+    width: 768px; /* Adjust width as needed */
+    scroll-behavior: smooth;
+}
+
+.product-tile {
+    min-width: 240px;
+    max-width: 240px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s;
+}
+
+.product-tile img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.5em;
+}
+
+.product-link {
+    color: #222;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 0.5em;
+    transition: color 0.2s;
+}
+
+.product-link:hover {
+    color: #0074d9;
+}
+
+.see-all-products-btn {
+    margin: 2em auto 0 auto;
+    display: block;
+    background: #234a8c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7em 2em;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: center;
+}
+
+.see-all-products-btn:hover,
+.see-all-products-btn:focus {
+    background: #1a3560;
+}
+
+.services {
+    text-align: center;
+    margin: 3em 0;
+}
+
+.services-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.services-options {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 2em 1.5em;
+    width: 320px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s, transform 0.7s;
+}
+
+.service-card.fade-in-left {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.service-card.fade-in-right {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1em;
+}
+
+.service-card h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.7em;
+}
+
+.service-icon {
+    width: 180px;           /* Match button width */
+    height: 180px;          /* Square shape */
+    object-fit: cover;      /* Cover the box, crop if needed */
+    margin-bottom: 1em;    /* Optional: rounded corners */
+    background: #eee;       /* Optional: fallback background */
+    display: block;
+}
+
+.service-btn {
+    width: 180px;           /* Match image width */
+    background: #234a8c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7em 0;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: auto;
+    display: block;
+    text-align: center;
+}
+
+.service-btn:hover,
+.service-btn:focus {
+    background: #1a3560;
+}
+
+/* Responsive styles for tablets and phones */
+@media (max-width: 900px) {
+    .services-options {
+        gap: 1em;
+    }
+    .service-card {
+        width: 45vw;
+        min-width: 220px;
+        padding: 1.2em 0.8em;
+    }
+    .service-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-card {
+        width: 90vw;
+        min-width: 0;
+        margin-bottom: 1.5em;
+        padding: 1em 0.5em;
+    }
+    .service-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.site-footer {
+    background: rgb(53, 52, 54);
+    color: #fff;
+    padding: 2em 0 1em 0;
+    margin-top: 3em;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.footer-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #e6e33c;
+}
+
+.footer-info {
+    font-size: 0.95em;
+    opacity: 0.8;
+}
+
+/* Responsive footer */
+@media (max-width: 600px) {
+    .footer-logo {
+        width: 100px;
+    }
+    .footer-links {
+        gap: 1em;
+        font-size: 0.95em;
+    }
+}
