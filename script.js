@@ -431,6 +431,9 @@ document.querySelectorAll('.product-insert').forEach(el => {
         name.className = 'product-display-name';
         name.textContent = product.name;
 
+        // Set page title
+        document.title = `${product.name} - Wireline Engineering`;
+
         // Description
         const desc = document.createElement('p');
         desc.className = 'product-display-desc';
@@ -588,8 +591,11 @@ function validateForm() {
     return true;
 }
 
-// Auto-fill contact form subject from URL parameter
+// Auto-fill contact form subject from URL parameter AND set page title
 document.addEventListener('DOMContentLoaded', function() {
+
+    
+    // Auto-fill contact form subject
     const urlParams = new URLSearchParams(window.location.search);
     const subject = urlParams.get('subject');
     const subjectField = document.getElementById('subject');
@@ -598,4 +604,3 @@ document.addEventListener('DOMContentLoaded', function() {
         subjectField.value = decodeURIComponent(subject);
     }
 });
-
