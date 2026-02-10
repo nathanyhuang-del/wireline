@@ -1,5 +1,29 @@
 {
-  "title": "Welcome to My Site",
-  "hero_image": "/images/uploads/example.jpg",
-  "description": "This is my website description."
+  "hero": {
+    "title": "Wireline Solutions. Engineered for Reliability.",
+    "subtitle": "Supplying world-class wireline winches and equipment since 2010.",
+    "button1": "VIEW PRODUCTS",
+    "button2": "VIEW SERVICES"
+  },
+  "about": {
+    "title": "About Wireline Engineering",
+    "text": "<strong>Wireline Winches and Equipment – Built for Performance, Reliability, and Safety</strong><br><br>Established in 2010 in Perth, Western Australia, Wireline Engineering designs, manufactures, and supplies wireline winches, wireline depth counters, and related equipment to clients worldwide.<br><br>We are proud to be a market leader in Australia and across the globe, trusted for delivering equipment that combines cutting-edge technology, superior performance, and proven reliability.<br><br>With dedicated in-house research and development, we continuously innovate to enhance functionality and safety—ensuring our customers always receive best-in-class wireline solutions.",
+    "images": [
+      "/images/what-we-do/whatwedo1.jpg",
+      "/images/what-we-do/whatwedo2.jpg",
+      "/images/what-we-do/whatwedo3.jpg",
+      "/images/what-we-do/whatwedo4.jpg"
+    ]
+  },
+  "products": {
+    "title": "Products",
+    "description": "We have many years of experience in wire line equipment design and manufacture. Our products include: Wireless Depth Tracker, Wireline Winches and Wireline Booms & Sheaves. We can also build custom design products to your specifications.",
+    "linkText": "SEE ALL PRODUCTS"
+  },
+  "services": {
+    "title": "OUR SERVICES"
+  },
+  "footer": {
+    "text": "© 2025 Wireline Engineering. All rights reserved."
+  }
 }
