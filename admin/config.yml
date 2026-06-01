@@ -52,3 +52,54 @@ collections:
             widget: "object"
             fields:
               - { label: "Footer Text", name: "text", widget: "string" }
+
+  - name: "products"
+    label: "Products"
+    files:
+      - label: "Products List"
+        name: "products_list"
+        file: "content/products.json"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Wireless Depth Tracker", value: "wdt" }
+                  - { label: "Electric Winch", value: "winch-electric" }
+                  - { label: "Hydraulic Winch", value: "winch-hydraulic" }
+                  - { label: "Boom & Snatch Block", value: "boom" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Page Link", name: "link", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Specifications"
+                name: "specs"
+                widget: "list"
+                field: { label: "Spec", name: "spec", widget: "string" }
+              - label: "Key Features"
+                name: "keyFeatures"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+
+  - name: "services"
+    label: "Services"
+    files:
+      - label: "Services List"
+        name: "services_list"
+        file: "content/services.json"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Homepage Description", name: "homepageDescription", widget: "text" }
+              - { label: "Full Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Page Link", name: "link", widget: "string" }
