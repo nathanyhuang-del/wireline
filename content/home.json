@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Wireline Solutions. Engineered for Reliability.",
+    "title": "Wireline Solutions. Engineered for Reliab",
     "subtitle": "Supplying world-class wireline winches and equipment since 2010.",
     "button1": "VIEW PRODUCTS",
     "button2": "VIEW SERVICES"
@@ -11,8 +11,7 @@
     "images": [
       "/images/uploads/20260208_071137_resized.jpg",
       "/images/what-we-do/whatwedo2.jpg",
-      "/images/what-we-do/whatwedo3.jpg",
-      "/images/what-we-do/whatwedo4.jpg"
+      "/images/what-we-do/whatwedo3.jpg"
     ]
   },
   "products": {
