@@ -7,8 +7,16 @@
       "image": "images/products/cct.jpg",
       "link": "wdt-pipe-rod.html",
       "description": "Wireless Depth Tracker configured for pipe/rod applications providing accurate depth and speed without a dedicated winch.",
-      "specs": ["Optimised for drill pipe/rods", "Wireless data transmission", "Low power consumption"],
-      "keyFeatures": ["Fast setup", "Rugged enclosure", "High accuracy encoder"]
+      "specs": [
+        "Optimised for drill pipe/rods",
+        "Wireless data transmission",
+        "Low power consumption"
+      ],
+      "keyFeatures": [
+        "Fast setup",
+        "Rugged enclosure",
+        "High accuracy encoder"
+      ]
     },
     {
       "id": "wdt-rodder",
@@ -17,8 +25,16 @@
       "image": "images/products/cct.jpg",
       "link": "wdt-rodder.html",
       "description": "Rodder kit variant for the Wireless Depth Tracker supporting continuous rodder operations.",
-      "specs": ["Rodder compatible mount", "Real-time depth & speed", "Extended battery option"],
-      "keyFeatures": ["Modular mounting", "Weather resistant", "Field serviceable"]
+      "specs": [
+        "Rodder compatible mount",
+        "Real-time depth & speed",
+        "Extended battery option"
+      ],
+      "keyFeatures": [
+        "Modular mounting",
+        "Weather resistant",
+        "Field serviceable"
+      ]
     },
     {
       "id": "wdt-fitted-encoder",
@@ -27,8 +43,16 @@
       "image": "images/products/cct.jpg",
       "link": "wdt-fitted-encoder.html",
       "description": "Encoder-fitted configuration enabling integration with existing site hardware.",
-      "specs": ["High resolution encoder", "Direct integration capability", "USB / Wireless output"],
-      "keyFeatures": ["Plug & play", "Low maintenance", "Precision readings"]
+      "specs": [
+        "High resolution encoder",
+        "Direct integration capability",
+        "USB / Wireless output"
+      ],
+      "keyFeatures": [
+        "Plug & play",
+        "Low maintenance",
+        "Precision readings"
+      ]
     },
     {
       "id": "we1500",
@@ -37,8 +61,17 @@
       "image": "images/products/we1500.jpg",
       "link": "we1500.html",
       "description": "Electric winch for mid-depth operations with advanced control and safety features.",
-      "specs": ["1500m 3/16\" capacity", "1–35m/min speed range", "IP65 rated", "Single Phase 200–240V"],
-      "keyFeatures": ["PLC control", "Auto spooling", "Real-time depth & tension"]
+      "specs": [
+        "1500m 3/16\" capacity",
+        "1–35m/min speed range",
+        "IP65 rated",
+        "Single Phase 200–240V"
+      ],
+      "keyFeatures": [
+        "PLC control",
+        "Auto spooling",
+        "Real-time depth & tension"
+      ]
     },
     {
       "id": "we3500",
@@ -47,8 +80,16 @@
       "image": "images/products/we3500.jpg",
       "link": "we3500.html",
       "description": "High capacity 3500m electric winch engineered for reliability in deep operations.",
-      "specs": ["3500m 3/16\" capacity", "High torque servo drive", "Advanced diagnostics"],
-      "keyFeatures": ["Stability under load", "Long cable life design", "Remote control"]
+      "specs": [
+        "3500m 3/16\" capacity",
+        "High torque servo drive",
+        "Advanced diagnostics"
+      ],
+      "keyFeatures": [
+        "Stability under load",
+        "Long cable life design",
+        "Remote control"
+      ]
     },
     {
       "id": "we5000",
@@ -57,8 +98,17 @@
       "image": "images/products/we3500.jpg",
       "link": "we5000.html",
       "description": "Ultra deep 5000m electric winch option for extended survey and logging tasks.",
-      "specs": ["5000m 3/16\" capacity", "Reinforced drum assembly", "Precision drive control"],
-      "keyFeatures": ["Extended reach", "Thermal protection", "Service friendly layout"]
+      "specs": [
+        "5000m 3/16\" capacity",
+        "Reinforced drum assembly",
+        "Precision drive control",
+        "hello"
+      ],
+      "keyFeatures": [
+        "Extended reach",
+        "Thermal protection",
+        "Service friendly layout"
+      ]
     },
     {
       "id": "we1500pc",
@@ -67,8 +117,16 @@
       "image": "images/products/we1500pc.jpg",
       "link": "we1500pc.html",
       "description": "Portable chassis variant of the WE1500 for easy field deployment.",
-      "specs": ["1500m 3/16\" capacity", "Portable frame", "Electric drive"],
-      "keyFeatures": ["Compact footprint", "Low maintenance", "Operator friendly"]
+      "specs": [
+        "1500m 3/16\" capacity",
+        "Portable frame",
+        "Electric drive"
+      ],
+      "keyFeatures": [
+        "Compact footprint",
+        "Low maintenance",
+        "Operator friendly"
+      ]
     },
     {
       "id": "wes2000",
@@ -77,8 +135,16 @@
       "image": "images/products/wes2000.jpg",
       "link": "wes2000.html",
       "description": "Lightweight 2000m 1/8\" electric winch for smaller diameter logging.",
-      "specs": ["2000m 1/8\" capacity", "Energy efficient drive", "Compact design"],
-      "keyFeatures": ["Lightweight", "Quick setup", "Reliable performance"]
+      "specs": [
+        "2000m 1/8\" capacity",
+        "Energy efficient drive",
+        "Compact design"
+      ],
+      "keyFeatures": [
+        "Lightweight",
+        "Quick setup",
+        "Reliable performance"
+      ]
     },
     {
       "id": "wh2000",
@@ -87,8 +153,16 @@
       "image": "images/products/wh2000pc.jpg",
       "link": "wh2000pc.html",
       "description": "Hydraulic 2000m winch delivering strong pulling force for demanding tasks.",
-      "specs": ["2000m 3/16\" capacity", "Hydraulic drive", "Heavy duty build"],
-      "keyFeatures": ["High torque", "Rugged frame", "Stable control"]
+      "specs": [
+        "2000m 3/16\" capacity",
+        "Hydraulic drive",
+        "Heavy duty build"
+      ],
+      "keyFeatures": [
+        "High torque",
+        "Rugged frame",
+        "Stable control"
+      ]
     },
     {
       "id": "wh3500",
@@ -97,8 +171,16 @@
       "image": "images/products/wh3500.jpg",
       "link": "wh3500.html",
       "description": "Hydraulic winch variant suited for operations requiring smooth controlled power.",
-      "specs": ["1500m 3/16\" capacity", "Hydraulic actuation", "Serviceable design"],
-      "keyFeatures": ["Robust hydraulic system", "Reliable under load", "Efficient cooling"]
+      "specs": [
+        "1500m 3/16\" capacity",
+        "Hydraulic actuation",
+        "Serviceable design"
+      ],
+      "keyFeatures": [
+        "Robust hydraulic system",
+        "Reliable under load",
+        "Efficient cooling"
+      ]
     },
     {
       "id": "external-wireline-boom",
@@ -107,8 +189,16 @@
       "image": "images/products/external_wireline_boom.jpg",
       "link": "external-wireline-boom.html",
       "description": "External deployment boom for vehicle mounted operations.",
-      "specs": ["Vehicle mount compatible", "Steel construction", "Hydraulic assist"],
-      "keyFeatures": ["Customisable", "Corrosion resistant", "Low maintenance"]
+      "specs": [
+        "Vehicle mount compatible",
+        "Steel construction",
+        "Hydraulic assist"
+      ],
+      "keyFeatures": [
+        "Customisable",
+        "Corrosion resistant",
+        "Low maintenance"
+      ]
     },
     {
       "id": "internal-wireline-boom",
@@ -117,8 +207,16 @@
       "image": "images/products/internal_wireline_boom.jpg",
       "link": "internal-wireline-boom.html",
       "description": "Internal boom optimised for enclosed vehicle fitouts.",
-      "specs": ["Space saving arm", "Protected routing", "Smooth operation"],
-      "keyFeatures": ["Quick deployment", "Low profile", "Durable finish"]
+      "specs": [
+        "Space saving arm",
+        "Protected routing",
+        "Smooth operation"
+      ],
+      "keyFeatures": [
+        "Quick deployment",
+        "Low profile",
+        "Durable finish"
+      ]
     },
     {
       "id": "wireline-snatch-blocks",
@@ -127,8 +225,16 @@
       "image": "images/products/wireline_sheave.jpg",
       "link": "wireline-sheave.html",
       "description": "Snatch blocks for safe redirection and handling of wireline cables.",
-      "specs": ["High strength alloy", "Low friction sheave", "Multiple mounting options"],
-      "keyFeatures": ["Long service life", "Low friction", "Easy inspection"]
+      "specs": [
+        "High strength alloy",
+        "Low friction sheave",
+        "Multiple mounting options"
+      ],
+      "keyFeatures": [
+        "Long service life",
+        "Low friction",
+        "Easy inspection"
+      ]
     }
   ]
 }
