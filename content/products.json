@@ -101,8 +101,7 @@
       "specs": [
         "5000m 3/16\" capacity",
         "Reinforced drum assembly",
-        "Precision drive control",
-        "hello"
+        "Precision drive control"
       ],
       "keyFeatures": [
         "Extended reach",
@@ -235,6 +234,14 @@
         "Low friction",
         "Easy inspection"
       ]
+    },
+    {
+      "id": "wt10000",
+      "name": "wt10000",
+      "category": "winch-electric",
+      "image": "/images/uploads/20260208_071137_resized.jpg",
+      "link": "wt10000.html",
+      "description": "hello"
     }
   ]
 }
