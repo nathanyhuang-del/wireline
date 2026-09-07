@@ -228,6 +228,19 @@
       "category": "winch",
       "image": "/images/uploads/20260208_071137_resized.jpg",
       "description": "hello"
+    },
+    {
+      "id": "bishbash",
+      "name": "bishbash",
+      "category": "boom",
+      "image": "/images/uploads/20260208_071137_resized.jpg",
+      "description": "bishbash",
+      "specs": [
+        "bishbash"
+      ],
+      "keyFeatures": [
+        "bishbash"
+      ]
     }
   ]
 }
