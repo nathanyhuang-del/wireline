@@ -696,9 +696,9 @@ body {
 }
 
 .service-display {
-    max-width: 56em;
+    max-width: 60em;
     margin: 2em auto;
-    padding: 2em 15%;
+    padding: 2em;
     text-align: center;
 }
 
@@ -715,8 +715,8 @@ body {
     line-height: 1.6;
 }
 .contact-page {
-    padding: 2em 15%;
-    max-width: 80em;
+    padding: 2em;
+    max-width: 84em;
     margin: 0 auto;
 }
 
@@ -847,7 +847,7 @@ body {
     }
     
     .contact-page {
-        padding: 2em 5%;
+        padding: 2em 1.2em;
     }
 }
 
@@ -866,8 +866,8 @@ body {
 }
 
 .downloads-page {
-    padding: 2em 15%;
-    max-width: 60em;
+    padding: 2em;
+    max-width: 66em;
     margin: 0 auto;
 }
 
@@ -1000,7 +1000,7 @@ body {
 /* Responsive design */
 @media (max-width: 768px) {
     .downloads-page {
-        padding: 2em 5%;
+        padding: 2em 1.2em;
     }
     
     .download-item {
@@ -1019,8 +1019,8 @@ body {
 }
 
 .services-page {
-    padding: 2em 15%;
-    max-width: 50em;
+    padding: 2em;
+    max-width: 60em;
     margin: 0 auto;
 }
 
@@ -1082,7 +1082,7 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .services-page {
-        padding: 2em 5%;
+        padding: 2em 1.2em;
     }
     
     .services-page h1 {
@@ -1114,9 +1114,9 @@ body {
     transform: translateY(-0.05em);
 }
 .not-found {
-    max-width: 40em;
+    max-width: 44em;
     margin: 4em auto;
-    padding: 0 5%;
+    padding: 0 2em;
     text-align: center;
 }
 
@@ -1255,7 +1255,7 @@ body {
     }
 
     .service-display {
-        padding: 1.5em 5%;
+        padding: 1.5em 1.2em;
     }
 
     .service-display-title {
