@@ -221,26 +221,6 @@
         "Low friction",
         "Easy inspection"
       ]
-    },
-    {
-      "id": "wt10000",
-      "name": "wt10000",
-      "category": "winch",
-      "image": "/images/uploads/20260208_071137_resized.jpg",
-      "description": "hello"
-    },
-    {
-      "id": "bishbash",
-      "name": "bishbash",
-      "category": "boom",
-      "image": "/images/uploads/20260208_071137_resized.jpg",
-      "description": "bishbash",
-      "specs": [
-        "bishbash"
-      ],
-      "keyFeatures": [
-        "bishbash"
-      ]
     }
   ]
 }
