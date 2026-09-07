@@ -84,19 +84,51 @@ window.addEventListener('scroll', () => {
     }
 });
 
-function validateForm() {
-    const website = document.getElementById('website').value;
-    if (website !== '') {
-        return false;
+// Contact form. Netlify captures the submission, so we post it in the
+// background and show the result inline instead of reloading the page.
+(function() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const status = document.getElementById('form-status');
+    const button = document.getElementById('contact-submit');
+    const buttonLabel = button.textContent;
+
+    function showStatus(message, kind) {
+        status.textContent = message;
+        status.className = 'form-status ' + kind;
+        status.hidden = false;
     }
-    const message = document.getElementById('message').value;
-    if (message.length < 10) {
-        alert('Please provide a more detailed message (at least 10 characters).');
-        return false;
-    }
-    alert('Thank you for your message! We will get back to you soon.');
-    return true;
-}
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        // Bot filled the hidden field - pretend it worked and send nothing
+        if (form.elements.website.value !== '') return;
+
+        status.hidden = true;
+        button.disabled = true;
+        button.textContent = 'Sending...';
+
+        try {
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(form)).toString()
+            });
+            if (!response.ok) throw new Error('Status ' + response.status);
+
+            form.reset();
+            showStatus('Thank you for your message. We will get back to you soon.', 'success');
+        } catch (err) {
+            showStatus('Sorry, your message could not be sent. Please email '
+                + 'info@wirelineengineering.com.au or call (08) 6316 3360.', 'error');
+        } finally {
+            button.disabled = false;
+            button.textContent = buttonLabel;
+        }
+    });
+})();
 
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
