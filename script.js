@@ -48,23 +48,31 @@ if (slideshow) {
     });
 }
 
-function revealServices() {
-    const servicesSection = document.querySelector('.services-options');
-    if (!servicesSection) return;
-    const rect = servicesSection.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    if (rect.top < windowHeight - 100) {
-        const cards = servicesSection.querySelectorAll('.service-card');
-        cards.forEach((card, idx) => {
-            const cls = idx % 2 === 0 ? 'fade-in-left' : 'fade-in-right';
-            card.classList.add(cls);
-            card.style.transitionDelay = (0.1 + idx * 0.15) + 's';
-        });
-        window.removeEventListener('scroll', revealServices);
+// Mobile menu button
+(function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (!navToggle || !navMenu) return;
+
+    function setOpen(open) {
+        navMenu.classList.toggle('open', open);
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
-}
-window.addEventListener('scroll', revealServices);
-revealServices();
+
+    navToggle.addEventListener('click', () => {
+        setOpen(!navMenu.classList.contains('open'));
+    });
+
+    // Tapping a link, or widening the window back to desktop, closes the menu
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setOpen(false));
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) setOpen(false);
+    });
+})();
 
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -99,6 +107,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Every product/service gets its page automatically from the shared template,
+// so adding one in the CMS needs no new HTML file.
+function productUrl(product) {
+    return 'product.html?id=' + encodeURIComponent(product.id);
+}
+
+function serviceUrl(service) {
+    return 'service.html?id=' + encodeURIComponent(service.id);
+}
+
+// The id comes from the element's data attribute (old per-product pages) or,
+// on the shared template, from the ?id= value in the address.
+function insertId(el, attr) {
+    return el.getAttribute(attr) || new URLSearchParams(window.location.search).get('id');
+}
+
+function notFoundMessage(what) {
+    const box = document.createElement('div');
+    box.className = 'not-found';
+    const heading = document.createElement('h1');
+    heading.textContent = what + ' not found';
+    const text = document.createElement('p');
+    text.textContent = 'Sorry, we could not find that ' + what.toLowerCase() + '.';
+    const back = document.createElement('a');
+    back.className = 'enquire-now-btn';
+    back.href = what === 'Product' ? 'products.html' : 'services.html';
+    back.textContent = 'Back to ' + (what === 'Product' ? 'Products' : 'Services');
+    box.appendChild(heading);
+    box.appendChild(text);
+    box.appendChild(back);
+    return box;
+}
+
 (async function() {
     const [productsRes, servicesRes] = await Promise.all([
         fetch('/content/products.json'),
@@ -106,43 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
     ]);
     const { products } = await productsRes.json();
     const { services } = await servicesRes.json();
-
-    // Homepage product carousel
-    const carouselTrack = document.querySelector('.carousel-track');
-    if (carouselTrack) {
-        products.forEach(product => {
-            const tile = document.createElement('div');
-            tile.className = 'product-tile';
-
-            const img = document.createElement('img');
-            img.src = product.image;
-            img.alt = product.name;
-
-            const a = document.createElement('a');
-            a.href = product.link;
-            a.className = 'product-link';
-            a.textContent = product.name;
-
-            tile.appendChild(img);
-            tile.appendChild(a);
-            carouselTrack.appendChild(tile);
-        });
-
-        document.querySelectorAll('.carousel-arrow').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const tile = carouselTrack.querySelector('.product-tile');
-                const style = getComputedStyle(tile);
-                const tileWidth = Math.round(tile.offsetWidth +
-                    parseInt(style.marginLeft) +
-                    parseInt(style.marginRight));
-                if (btn.classList.contains('left')) {
-                    carouselTrack.scrollBy({ left: -tileWidth, behavior: 'smooth' });
-                } else {
-                    carouselTrack.scrollBy({ left: tileWidth, behavior: 'smooth' });
-                }
-            });
-        });
-    }
 
     // Products page category grids
     function populateGrid(containerId, filterFn) {
@@ -156,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
             img.alt = product.name;
             const nameLink = document.createElement('a');
             nameLink.className = 'product-page-name';
-            nameLink.href = product.link;
+            nameLink.href = productUrl(product);
             nameLink.textContent = product.name;
             nameLink.style.textDecoration = 'none';
             tile.appendChild(img);
@@ -166,14 +170,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     populateGrid('wdt-products', p => p.category === 'wdt');
-    populateGrid('winch-product-tiles', p => p.category && p.category.startsWith('winch-'));
+    populateGrid('winch-product-tiles', p => p.category === 'winch');
     populateGrid('boom-products', p => p.category === 'boom');
 
     // Individual product detail pages
     document.querySelectorAll('.product-insert').forEach(el => {
-        const productId = el.getAttribute('data-product-id');
+        const productId = insertId(el, 'data-product-id');
         const product = products.find(p => p.id === productId);
-        if (!product) return;
+        if (!product) {
+            el.replaceWith(notFoundMessage('Product'));
+            return;
+        }
 
         const container = document.createElement('div');
         container.className = 'product-display';
@@ -259,12 +266,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Individual service detail pages
     document.querySelectorAll('.service-insert').forEach(el => {
-        const serviceId = el.getAttribute('data-service-id');
+        const serviceId = insertId(el, 'data-service-id');
         const service = services.find(s => s.id === serviceId);
-        if (!service) return;
+        if (!service) {
+            el.replaceWith(notFoundMessage('Service'));
+            return;
+        }
 
         const container = document.createElement('div');
         container.className = 'service-display';
+
+        document.title = `${service.title} - Wireline Engineering`;
 
         const title = document.createElement('h1');
         title.className = 'service-display-title';
@@ -279,39 +291,4 @@ document.addEventListener('DOMContentLoaded', function() {
         el.replaceWith(container);
     });
 
-    // Homepage services cards
-    const servicesContainer = document.getElementById('services-container');
-    if (servicesContainer) {
-        services.forEach(service => {
-            const serviceCard = document.createElement('div');
-            serviceCard.className = 'service-card';
-
-            const img = document.createElement('img');
-            img.src = service.image;
-            img.alt = service.title;
-            img.className = 'service-icon';
-
-            const title = document.createElement('h3');
-            title.textContent = service.title;
-
-            const desc = document.createElement('p');
-            desc.textContent = service.homepageDescription;
-
-            const button = document.createElement('button');
-            button.className = 'service-btn';
-            button.textContent = 'FIND OUT MORE';
-            button.onclick = function() {
-                window.location.href = service.link;
-            };
-
-            serviceCard.appendChild(img);
-            serviceCard.appendChild(title);
-            serviceCard.appendChild(desc);
-            serviceCard.appendChild(button);
-            servicesContainer.appendChild(serviceCard);
-        });
-
-        // Re-run reveal in case the section is already in view when cards are added
-        revealServices();
-    }
 })();

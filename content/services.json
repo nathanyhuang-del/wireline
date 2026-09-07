@@ -5,32 +5,28 @@
       "title": "WINCH SPOOLING",
       "homepageDescription": "Professional spooling ensuring even tension and extended cable life.",
       "description": "Our winch spooling service delivers precision layering to maximise cable longevity and operational safety.",
-      "image": "/images/uploads/20260208_071137_resized.jpg",
-      "link": "winch-spooling.html"
+      "image": "/images/uploads/20260208_071137_resized.jpg"
     },
     {
       "id": "winch-repairs",
       "title": "WINCH REPAIRS & SERVICES",
       "homepageDescription": "Maintenance and overhaul solutions to keep your assets operational.",
       "description": "We perform diagnostic assessment, component replacement and performance testing to restore winches to optimal condition.",
-      "image": "images/services/service2.jpg",
-      "link": "winch-repairs.html"
+      "image": "images/services/service2.jpg"
     },
     {
       "id": "custom-winches",
       "title": "CUSTOMED WINCH PROJECTS",
       "homepageDescription": "Tailored engineering for unique operational challenges.",
       "description": "We design and deliver custom winch systems and accessories to meet specialised field requirements.",
-      "image": "images/services/service1.jpg",
-      "link": "custom-winches.html"
+      "image": "images/services/service1.jpg"
     },
     {
       "id": "vehicle-fitouts",
       "title": "VEHICLE FITOUTS",
       "homepageDescription": "Integrated mobile workspaces for efficient field logging operations.",
       "description": "From ergonomic layouts to equipment integration, our vehicle fitouts optimise operator comfort and productivity.",
-      "image": "images/services/service2.jpg",
-      "link": "vehicle-fitouts.html"
+      "image": "images/services/service2.jpg"
     }
   ]
 }

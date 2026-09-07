@@ -6,6 +6,7 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  # ---------------------------------------------------------------- Homepage
   - name: "home"
     label: "Homepage"
     files:
@@ -27,25 +28,16 @@ collections:
             widget: "object"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Text", name: "text", widget: "text" }
+              - label: "Text"
+                name: "text"
+                widget: "text"
+                hint: "Basic HTML is allowed, e.g. <br> for a line break and <strong>...</strong> for bold."
               - label: "Images"
                 name: "images"
                 widget: "list"
+                max: 4
+                hint: "Up to 4 images shown beside the About text."
                 field: { label: "Image", name: "image", widget: "image" }
-
-          - label: "Products Section"
-            name: "products"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Link Text", name: "linkText", widget: "string" }
-
-          - label: "Services Section"
-            name: "services"
-            widget: "object"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
 
           - label: "Footer"
             name: "footer"
@@ -53,6 +45,38 @@ collections:
             fields:
               - { label: "Footer Text", name: "text", widget: "string" }
 
+  # ------------------------------------------------------------ Products page
+  - name: "products_page"
+    label: "Products Page"
+    files:
+      - label: "Products Page Text"
+        name: "products_page_text"
+        file: "content/products-page.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+
+          - label: "Wireless Depth Tracker Category"
+            name: "wdt"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Wireline Winches Category"
+            name: "winch"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+          - label: "Booms & Snatch Blocks Category"
+            name: "boom"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  # ----------------------------------------------------------------- Products
   - name: "products"
     label: "Products"
     files:
@@ -63,29 +87,51 @@ collections:
           - label: "Products"
             name: "products"
             widget: "list"
+            label_singular: "Product"
+            summary: "{{fields.name}}"
             fields:
-              - { label: "ID", name: "id", widget: "string" }
+              - label: "ID"
+                name: "id"
+                widget: "string"
+                hint: "Short unique code, lowercase with dashes (e.g. we1500). This becomes the product's web address and cannot clash with another product."
               - { label: "Name", name: "name", widget: "string" }
               - label: "Category"
                 name: "category"
                 widget: "select"
+                hint: "Which section of the Products page this appears under."
                 options:
                   - { label: "Wireless Depth Tracker", value: "wdt" }
-                  - { label: "Electric Winch", value: "winch-electric" }
-                  - { label: "Hydraulic Winch", value: "winch-hydraulic" }
+                  - { label: "Wireline Winch", value: "winch" }
                   - { label: "Boom & Snatch Block", value: "boom" }
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Page Link", name: "link", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
               - label: "Specifications"
                 name: "specs"
                 widget: "list"
+                required: false
+                label_singular: "Specification"
                 field: { label: "Spec", name: "spec", widget: "string" }
               - label: "Key Features"
                 name: "keyFeatures"
                 widget: "list"
+                required: false
+                label_singular: "Feature"
                 field: { label: "Feature", name: "feature", widget: "string" }
 
+  # ------------------------------------------------------------ Services page
+  - name: "services_page"
+    label: "Services Page"
+    files:
+      - label: "Services Page Text"
+        name: "services_page_text"
+        file: "content/services-page.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Contact Heading", name: "contactHeading", widget: "string" }
+          - { label: "Contact Text", name: "contactText", widget: "text" }
+          - { label: "Contact Button Text", name: "contactButton", widget: "string" }
+
+  # ----------------------------------------------------------------- Services
   - name: "services"
     label: "Services"
     files:
@@ -96,10 +142,72 @@ collections:
           - label: "Services"
             name: "services"
             widget: "list"
+            label_singular: "Service"
+            summary: "{{fields.title}}"
             fields:
-              - { label: "ID", name: "id", widget: "string" }
+              - label: "ID"
+                name: "id"
+                widget: "string"
+                hint: "Short unique code, lowercase with dashes (e.g. winch-spooling). This becomes the service's web address and cannot clash with another service."
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "Homepage Description", name: "homepageDescription", widget: "text" }
-              - { label: "Full Description", name: "description", widget: "text" }
+              - label: "Short Description"
+                name: "homepageDescription"
+                widget: "text"
+                hint: "Shown in the summary list on the Services page."
+              - label: "Full Description"
+                name: "description"
+                widget: "text"
+                hint: "Shown on this service's own page."
               - { label: "Image", name: "image", widget: "image" }
-              - { label: "Page Link", name: "link", widget: "string" }
+
+  # ---------------------------------------------------------------- Downloads
+  - name: "downloads"
+    label: "Downloads Page"
+    media_folder: "/downloads"
+    public_folder: "/downloads"
+    files:
+      - label: "Downloads Page"
+        name: "downloads_page"
+        file: "content/downloads.json"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Subtitle", name: "subtitle", widget: "string" }
+
+          - label: "Download Sections"
+            name: "sections"
+            widget: "list"
+            label_singular: "Section"
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: "Section Heading", name: "heading", widget: "string" }
+              - label: "Files"
+                name: "items"
+                widget: "list"
+                label_singular: "File"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    default: "pdf"
+                    hint: "Colour and symbol shown next to this download."
+                    options:
+                      - { label: "PDF document (red)", value: "pdf" }
+                      - { label: "Windows program (blue)", value: "windows" }
+                      - { label: "Android app (green)", value: "android" }
+                      - { label: "Generic file (grey)", value: "file" }
+                  - label: "File"
+                    name: "file"
+                    widget: "file"
+                    hint: "Upload the file to download, or choose one already uploaded."
+                  - label: "Button Text"
+                    name: "buttonText"
+                    widget: "string"
+                    default: "Download"
+                    hint: "Text on the download button, e.g. Download PDF or Download v1.0.6"
+
+          - { label: "Support Heading", name: "supportHeading", widget: "string" }
+          - { label: "Support Text", name: "supportText", widget: "text" }
+          - { label: "Support Button Text", name: "supportButton", widget: "string" }

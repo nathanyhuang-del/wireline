@@ -1,12 +1,25 @@
+:root {
+    --nav-h: 6em;
+    --hero-h: 32vh;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
 body {
-    padding-top: 6em;
+    padding-top: var(--nav-h);
     margin: 0;
     font-family: "Roboto", Arial, sans-serif;
     background: linear-gradient(
         to bottom,
         rgb(53, 52, 54) 0,
-        rgb(53, 52, 54) 6em,
-        #fff 6em,
+        rgb(53, 52, 54) var(--nav-h),
+        #fff var(--nav-h),
         #fff 100%
     );
 }
@@ -15,7 +28,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     z-index: 1000;
     background-color: rgba(53, 52, 54, 1);
     display: flex;
@@ -55,16 +68,50 @@ body {
     padding-left: 1em;
 }
 
+/* Mobile menu button - hidden until the nav no longer fits on one line */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.32em;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0.7em;
+    margin-right: 5%;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 1.7em;
+    height: 0.16em;
+    background: #fff;
+    border-radius: 0.1em;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(0.48em) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-0.48em) rotate(-45deg);
+}
+
 
 
 .slideshow {
-    width: 100vw;
-    height: 32vh;
+    width: 100%;
+    height: var(--hero-h);
     position: relative;
     overflow: hidden;
 }
 .slide {
-    width: 100vw;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
@@ -85,8 +132,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 32vh;
+    width: 100%;
+    height: var(--hero-h);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -136,8 +183,8 @@ body {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100vw;
-    height: 32vh;
+    width: 100%;
+    height: var(--hero-h);
     background: rgba(0,0,0,0.5);
     z-index: 1;
     opacity: 1;
@@ -836,6 +883,13 @@ body {
     margin-bottom: 2em;
 }
 
+/* Support paragraph sits directly in the section, so it misses .download-info p */
+.downloads-section > p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+}
+
 .downloads-section {
     margin-bottom: 3em;
     padding-bottom: 2em;
@@ -901,6 +955,11 @@ body {
 
 .pdf-icon {
     background: #dc3545;
+    color: white;
+}
+
+.file-icon {
+    background: #6c757d;
     color: white;
 }
 
@@ -1053,4 +1112,248 @@ body {
     color: white !important;
     text-decoration: none !important;
     transform: translateY(-0.05em);
+}
+.not-found {
+    max-width: 40em;
+    margin: 4em auto;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.not-found h1 {
+    font-size: 1.9em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.not-found p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 1.5em;
+}
+
+/* ==========================================================================
+   Responsive layout
+   Desktop styles above are unchanged; these take over on narrower screens.
+   ========================================================================== */
+
+/* ---- Tablets and small laptop windows ---- */
+@media (max-width: 900px) {
+    :root {
+        --nav-h: 4.6em;
+    }
+
+    /* Nav collapses to a menu button */
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar img {
+        height: 4em;
+        padding-left: 5%;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .navbar-options {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 0 0.5em 0;
+        background: rgb(53, 52, 54);
+    }
+
+    .navbar-options.open {
+        display: flex;
+    }
+
+    .navbar-options a {
+        padding: 0.9em 5%;
+        font-size: 1.05em;
+    }
+
+    .navbar-options a:not(:first-child) {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-left: 5%;
+    }
+
+    /* About section stacks instead of sitting side by side */
+    .what-we-do {
+        padding: 2.5em 5%;
+    }
+
+    .what-we-do-content {
+        flex-direction: column;
+    }
+
+    .what-we-do p {
+        width: 100%;
+        min-height: 0;
+    }
+
+    .what-we-do-images {
+        padding-left: 0;
+        margin-top: 2em;
+        width: 100%;
+        gap: 0.6em;
+    }
+
+    .what-we-do-images img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Products listing */
+    .products-page {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+        gap: 1em;
+    }
+
+    .product-page-tile {
+        width: auto;
+        margin: 0;
+    }
+
+    /* Product detail stacks */
+    .product-display {
+        flex-direction: column;
+        gap: 1.5em;
+        padding: 0 5%;
+        text-align: center;
+    }
+
+    .product-display-img {
+        width: 100%;
+        max-width: 22em;
+    }
+
+    .product-display-info {
+        text-align: center;
+    }
+
+    .product-specs-section {
+        flex-direction: column;
+        gap: 1.5em;
+        padding: 1em 5%;
+        text-align: left;
+    }
+
+    .product-divider {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .service-display {
+        padding: 1.5em 5%;
+    }
+
+    .service-display-title {
+        font-size: 2em;
+    }
+}
+
+/* ---- Phones ---- */
+@media (max-width: 600px) {
+    :root {
+        --nav-h: 4em;
+        --hero-h: 60vh;
+    }
+
+    .navbar img {
+        height: 3.4em;
+    }
+
+    /* Hero needs more room once the text wraps */
+    .slideshow-overlay {
+        padding-top: var(--nav-h);
+        padding-left: 1.2em;
+        padding-right: 1.2em;
+    }
+
+    .what-we-do h2 {
+        font-size: 1.6em;
+    }
+
+    .what-we-do p {
+        font-size: 1.05em;
+    }
+
+    /* Two product tiles per row, aligned in columns rather than centred */
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8em;
+    }
+
+    .product-page-tile {
+        width: auto;
+        padding: 1em 0.6em;
+    }
+
+    .product-page-tile img {
+        height: 6em;
+    }
+
+    .product-page-name {
+        font-size: 0.95em;
+    }
+
+    .products-page h1 {
+        font-size: 1.8em;
+    }
+
+    .product-display-name {
+        font-size: 1.6em;
+    }
+
+    .product-display-desc {
+        font-size: 1.05em;
+    }
+
+    .product-specs-list li,
+    .product-additional-list li {
+        font-size: 1em;
+    }
+
+    .service-display-title {
+        font-size: 1.7em;
+    }
+
+    .service-display-desc {
+        font-size: 1.1em;
+    }
+
+    .enquire-now-btn,
+    .service-learn-more-btn,
+    .download-btn,
+    .see-all-products-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-content {
+        padding: 0 5%;
+    }
+
+    .not-found h1 {
+        font-size: 1.5em;
+    }
+}
+
+/* ---- Small phones (below the common 375px width) ---- */
+@media (max-width: 360px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
 }

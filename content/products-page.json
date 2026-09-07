@@ -1,0 +1,15 @@
+{
+  "title": "PRODUCTS",
+  "wdt": {
+    "heading": "Wireless Depth Tracker (WDT)",
+    "description": "Wireless Depth Tracker variants providing accurate depth and speed measurement without a dedicated winch. Choose the configuration that matches your deployment scenario."
+  },
+  "winch": {
+    "heading": "Wireline Winches",
+    "description": "Electric and hydraulic wireline winches built for accurate, reliable operation across shallow and deep applications. Custom configurations available on request."
+  },
+  "boom": {
+    "heading": "Booms & Snatch Blocks",
+    "description": "External and internal deployment booms plus snatch blocks engineered for reliability and safe cable handling. Custom designs available."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "title": "Downloads",
+  "subtitle": "Product Support & Documentation",
+  "sections": [
+    {
+      "heading": "Software Updates",
+      "items": [
+        {
+          "title": "Wireless Depth Tracker - WDT",
+          "description": "Windows PC - Latest version with improved features and bug fixes.",
+          "icon": "windows",
+          "file": "/downloads/WDT_Setup_1.0.6.msi",
+          "buttonText": "Download v1.0.6"
+        },
+        {
+          "title": "WDT Mobile App",
+          "description": "Android - Mobile companion app for field operations.",
+          "icon": "android",
+          "file": "/downloads/WDT_App_1.0.5.apk",
+          "buttonText": "Download v1.0.5"
+        }
+      ]
+    },
+    {
+      "heading": "Product Documentation",
+      "items": [
+        {
+          "title": "Wireless Depth Tracker Communication Protocol",
+          "description": "Technical specifications and communication details for integration purposes.",
+          "icon": "pdf",
+          "file": "/downloads/Wireless_Depth_Tracker_Communication_Protocol.pdf",
+          "buttonText": "Download PDF"
+        },
+        {
+          "title": "WDT Product Brochure",
+          "description": "Complete product overview and specifications for the Wireless Depth Tracker.",
+          "icon": "pdf",
+          "file": "/downloads/WDT_Brochure.pdf",
+          "buttonText": "Download PDF"
+        },
+        {
+          "title": "CCT Product Brochure",
+          "description": "Cable tracking system details and features for the Wireless Cable Tracker.",
+          "icon": "pdf",
+          "file": "/downloads/CCT_Brochure.pdf",
+          "buttonText": "Download PDF"
+        }
+      ]
+    }
+  ],
+  "supportHeading": "Need Support?",
+  "supportText": "If you need further information or technical support, please get in touch.",
+  "supportButton": "Contact Us"
+}

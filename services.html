@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Services - Wireline Engineering</title>
     <link rel="icon" type="image/png" href="images/logo/logo.png">
     <link rel="stylesheet" href="style.css">
@@ -9,7 +11,10 @@
     <div class="top-bar"></div>
     <nav class="navbar">
         <img src="images/logo/logo with text white.png" alt="Wireline Engineering Logo">
-        <div class="navbar-options">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="navbar-options" id="nav-menu">
             <a href="index.html" id="home">Home</a>
             <a href="products.html" id="products">Products</a>
             <a href="services.html" id="services">Services</a>
@@ -20,13 +25,13 @@
 
     <main>
         <div class="services-page">
-            <h1>Our Services</h1>
-            
-            <div class="service-section"><h2>Winch Spooling</h2><p>Professional spooling ensuring even tension and extended cable life.</p><a href="winch-spooling.html" class="service-learn-more-btn">Learn More</a></div>
-            <div class="service-section"><h2>Winch Repairs & Services</h2><p>Maintenance and overhaul solutions to keep your assets operational.</p><a href="winch-repairs.html" class="service-learn-more-btn">Learn More</a></div>
-            <div class="service-section"><h2>Customed Winch Projects</h2><p>Tailored engineering for unique operational challenges.</p><a href="custom-winches.html" class="service-learn-more-btn">Learn More</a></div>
-            <div class="service-section"><h2>Vehicle Fitouts</h2><p>Integrated mobile workspaces for efficient field logging operations.</p><a href="vehicle-fitouts.html" class="service-learn-more-btn">Learn More</a></div>
-            <div class="service-section"><h3>Need More Information?</h3><p>If you would like further information, please <a href="contact.html">contact us</a> to discuss your requirements in detail.</p></div>
+            <h1 id="services-page-title"></h1>
+            <div id="services-sections"></div>
+            <div class="service-section">
+                <h3 id="services-contact-heading"></h3>
+                <p id="services-contact-text"></p>
+                <a href="contact.html" class="service-learn-more-btn" id="services-contact-button"></a>
+            </div>
         </div>
     </main>
 
@@ -45,6 +50,42 @@
             </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
+
+    <!-- CMS content loader -->
+    <script>
+      Promise.all([
+        fetch("/content/services-page.json").then(res => res.json()),
+        fetch("/content/services.json").then(res => res.json())
+      ]).then(([page, data]) => {
+        document.getElementById("services-page-title").innerText = page.title;
+        document.getElementById("services-contact-heading").innerText = page.contactHeading;
+        document.getElementById("services-contact-text").innerText = page.contactText;
+        document.getElementById("services-contact-button").innerText = page.contactButton;
+
+        const container = document.getElementById("services-sections");
+        (data.services || []).forEach(service => {
+          const section = document.createElement("div");
+          section.className = "service-section";
+
+          const heading = document.createElement("h2");
+          heading.textContent = service.title;
+
+          const desc = document.createElement("p");
+          desc.textContent = service.homepageDescription;
+
+          const link = document.createElement("a");
+          link.href = serviceUrl(service);
+          link.className = "service-learn-more-btn";
+          link.textContent = "Learn More";
+
+          section.appendChild(heading);
+          section.appendChild(desc);
+          section.appendChild(link);
+          container.appendChild(section);
+        });
+      });
+    </script>
 </body>
 </html>
