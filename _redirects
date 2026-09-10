@@ -1,0 +1,31 @@
+# Old per-product/service pages are gone; product.html and service.html
+# now render every item from the CMS. These keep existing links working.
+
+/external-wireline-boom.html        /product.html?id=external-wireline-boom  301
+/internal-wireline-boom.html        /product.html?id=internal-wireline-boom  301
+/wdt-fitted-encoder.html            /product.html?id=wdt-fitted-encoder  301
+/wdt-pipe-rod-kit.html              /product.html?id=wdt-pipe-rod  301
+/wdt-pipe-rod.html                  /product.html?id=wdt-pipe-rod  301
+/wdt-rodder-kit.html                /product.html?id=wdt-rodder  301
+/wdt-rodder.html                    /product.html?id=wdt-rodder  301
+/we1500.html                        /product.html?id=we1500  301
+/we1500pc.html                      /product.html?id=we1500pc  301
+/we3500.html                        /product.html?id=we3500  301
+/we5000.html                        /product.html?id=we5000  301
+/wes2000.html                       /product.html?id=wes2000  301
+/wh2000.html                        /product.html?id=wh2000  301
+/wh2000pc.html                      /product.html?id=wh2000  301
+/wh3500.html                        /product.html?id=wh3500  301
+/wireline-sheave.html               /product.html?id=wireline-snatch-blocks  301
+/wireline-snatch-blocks.html        /product.html?id=wireline-snatch-blocks  301
+
+/custom-winches.html                /service.html?id=custom-winches  301
+/vehicle-fitouts.html               /service.html?id=vehicle-fitouts  301
+/winch-projects.html                /service.html?id=custom-winches  301
+/winch-repairs-and-services.html    /service.html?id=winch-repairs  301
+/winch-repairs.html                 /service.html?id=winch-repairs  301
+/winch-spooling.html                /service.html?id=winch-spooling  301
+
+/cct.html                           /products.html  301
+/custom-jobs.html                   /services.html  301
+/product-template.html              /products.html  301
