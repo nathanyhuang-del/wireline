@@ -2,6 +2,19 @@ backend:
   name: git-gateway
   branch: main
 
+# Saving creates a draft (a branch + pull request) instead of publishing straight
+# away. Netlify builds a preview of each draft, and the editor gets a link to it.
+# Nothing reaches the live site until someone clicks Publish.
+publish_mode: editorial_workflow
+
+# Collapse a draft's commits into one when it is published, so the history stays
+# readable instead of filling up with merge commits.
+squash_merges: true
+
+# Uncomment once the real domain is pointed at Netlify - it adds preview links
+# for content that is already published.
+# site_url: "https://www.wirelineengineering.com.au"
+
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
@@ -9,6 +22,7 @@ collections:
   # ---------------------------------------------------------------- Homepage
   - name: "home"
     label: "Homepage"
+    preview_path: "index.html"
     files:
       - label: "Homepage Content"
         name: "homepage"
@@ -48,6 +62,7 @@ collections:
   # ------------------------------------------------------------ Products page
   - name: "products_page"
     label: "Products Page"
+    preview_path: "products.html"
     files:
       - label: "Products Page Text"
         name: "products_page_text"
@@ -79,6 +94,7 @@ collections:
   # ----------------------------------------------------------------- Products
   - name: "products"
     label: "Products"
+    preview_path: "products.html"
     files:
       - label: "Products List"
         name: "products_list"
@@ -121,6 +137,7 @@ collections:
   # ------------------------------------------------------------ Services page
   - name: "services_page"
     label: "Services Page"
+    preview_path: "services.html"
     files:
       - label: "Services Page Text"
         name: "services_page_text"
@@ -134,6 +151,7 @@ collections:
   # ----------------------------------------------------------------- Services
   - name: "services"
     label: "Services"
+    preview_path: "services.html"
     files:
       - label: "Services List"
         name: "services_list"
@@ -163,6 +181,7 @@ collections:
   # ---------------------------------------------------------------- Downloads
   - name: "downloads"
     label: "Downloads Page"
+    preview_path: "downloads.html"
     media_folder: "/downloads"
     public_folder: "/downloads"
     files:
